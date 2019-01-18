@@ -1,3 +1,6 @@
+//S ->a|(L) 
+//L->L,S|S 
+
 import java.util.*;
 import java.io.*;
 
