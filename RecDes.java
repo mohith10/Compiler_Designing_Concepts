@@ -1,3 +1,6 @@
+//S->cAd 
+//A->ab|d 
+
 import java.util.*;
 import java.io.*;
 class RecDes
@@ -68,10 +71,5 @@ else
 	}
 
 }
-//S->cAd 
-//A->ab|d 
 
-//E -> x + T
-//	T -> (E)
-	//T -> x
-//http://www.pracspedia.com/SPCC/recursivedescentparser.html
+
