@@ -1,3 +1,6 @@
+//S->bAc 
+//A->re|r 
+
 import java.util.*;
 import java.io.*;
 
@@ -65,5 +68,3 @@ class Recdes2
 }
 
 
-//S->bAc 
-//A->re|r 
