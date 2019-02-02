@@ -1,0 +1,42 @@
+import java.io.*;
+class Main{
+	public static void main(String args[]) throws IOException	{
+		Yylex4_4 lex=new Yylex4_4(System.in);
+		Token token=lex.yylex();
+		while(token.text!=null)	{
+			token=lex.yylex();
+		}
+	}
+}
+class Token	{
+	String text;
+	Token(String t){text=t;}
+}
+%%
+%public
+%class Yylex4_4
+%type void
+digit=[0-9]
+letter=[a-zA-Z]
+special = [!@#$%^&*()_+]
+
+whitespace = [ \t\n]
+%type Token
+%eofval{
+	return new Token(null);
+%eofval}
+%%
+ 
+{  
+ System.out.print("<A valid Identifier: " + yytext() + ">");} 
+"if"
+ {whitespace}+  
+ { 
+  /*Skip white spaces*/ 
+ }
+
+
+
+
+
+
