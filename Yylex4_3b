@@ -1,0 +1,41 @@
+//+91-476-2801280 or 0476-2801280 or 2801280. 
+import java.io.*;
+class Main{
+	public static void main(String args[]) throws IOException	{
+System.out.println("Enter string:");
+		Yylex4_3 lex=new Yylex4_3(System.in);
+		Token token=lex.yylex();
+		while(token.text!=null)	{
+			token=lex.yylex();
+		}
+	}
+}
+class Token	{
+	String text;
+	Token(String t){text=t;}
+}
+%%
+%public
+%class Yylex4_3
+%type void
+digit=[0-9]
+letter=[a-zA-Z]
+special = [!@#$%^&*()_]
+plus=[+]
+dash=[-]
+whitespace = [ \t\n]
+%type Token
+%eofval{
+	return new Token(null);
+%eofval}
+%%
+({plus}{digit}{digit}{dash}{digit}{digit}{digit}{dash}{digit}{digit}{digit}{digit}{digit}{digit})|((0){digit}{digit}{digit}{dash}{digit}{digit}{digit}{digit}{digit}{digit})|({digit}{digit}{digit}{digit}{digit}{digit}{digit})
+{  
+ System.out.print("<A valid Identifier: " + yytext() + ">");} 
+ {whitespace}+  
+ { 
+  /*Skip white spaces*/ 
+ }
+
+
+
