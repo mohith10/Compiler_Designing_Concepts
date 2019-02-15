@@ -1,0 +1,41 @@
+//+91xxxxxxxxxx or 0xxxxxxxxxx or xxxxxxxxxx (10- digits exactly).
+import java.io.*;
+class Main{
+	public static void main(String args[]) throws IOException	{
+System.out.println("Enter string:");
+		Yylex4_5 lex=new Yylex4_5(System.in);
+		Token token=lex.yylex();
+		while(token.text!=null)	{
+			token=lex.yylex();
+		}
+	}
+}
+class Token	{
+	String text;
+	Token(String t){text=t;}
+}
+%%
+%public
+%class Yylex4_5
+%type void
+digit=[0-9]
+letter=[a-zA-Z]
+special = [!@#$%^&*()_]
+dot=[.]
+dash=[-]
+whitespace = [ \t\n]
+%type Token
+%eofval{
+	return new Token(null);
+%eofval}
+%%
+{digit}*{dot}{digit}+
+{  
+ System.out.print("<A valid Identifier: " + yytext() + ">");} 
+ {whitespace}+  
+ { 
+  /*Skip white spaces*/ 
+ }
+
+
+
